@@ -1,0 +1,103 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2021-12-26T00:12:34.849539+00:00",
+  "repo": "chris-wood/draft-wood-httpbis-ech-coalescing",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "MDU6SXNzdWU2NDEzOTIzODM=",
+      "title": "Require that ECH is used on the original connection ",
+      "url": "https://github.com/chris-wood/draft-wood-httpbis-ech-coalescing/issues/1",
+      "state": "CLOSED",
+      "author": "tfpauly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This would ensure that the echconfig on at least one of the HTTPS RRs is legit, and not just a bogus config that got marked on two hostnames to make them look like they match",
+      "createdAt": "2020-06-18T16:56:15Z",
+      "updatedAt": "2021-10-25T15:47:18Z",
+      "closedAt": "2021-10-25T15:47:18Z",
+      "comments": [
+        {
+          "author": "chris-wood",
+          "authorAssociation": "OWNER",
+          "body": "Fixed directly on main.",
+          "createdAt": "2021-10-25T15:47:18Z",
+          "updatedAt": "2021-10-25T15:47:18Z"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "MDU6SXNzdWU2NDEzOTMyOTc=",
+      "title": "Describe cases in which cert matches, but echconfig doesn't",
+      "url": "https://github.com/chris-wood/draft-wood-httpbis-ech-coalescing/issues/2",
+      "state": "CLOSED",
+      "author": "tfpauly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Particularly for H3",
+      "createdAt": "2020-06-18T16:57:06Z",
+      "updatedAt": "2021-10-25T15:47:10Z",
+      "closedAt": "2021-10-25T15:47:10Z",
+      "comments": [
+        {
+          "author": "chris-wood",
+          "authorAssociation": "OWNER",
+          "body": "I think we can omit this and focus only on the success cases, i.e., when everything matches.",
+          "createdAt": "2021-10-25T15:47:10Z",
+          "updatedAt": "2021-10-25T15:47:10Z"
+        }
+      ]
+    }
+  ],
+  "pulls": []
+}
