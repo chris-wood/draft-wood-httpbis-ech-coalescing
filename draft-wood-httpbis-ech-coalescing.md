@@ -76,18 +76,17 @@ service provider. As a result, clients can use it as a signal to determine if a 
 resource is hosted by the same service provider. Thus, the HTTP/2 connection reuse
 policy is modified to use this signal as follows:
 
-   Connections that are made to an origin server, either directly or
-   through a tunnel created using the CONNECT method (Section 8.3), MAY
-   be reused for requests with multiple different URI authority
-   components.  A connection can be reused as long as the origin server
-   is authoritative (Section 10.1).  For TCP connections without TLS,
-   this depends on the host having resolved to the same service provider.
-   Clients may implement this check in one of two ways: (1) by comparing
-   for equality the resolved IP address to that of the original connection,
-   or (2) by comparing for equality the "echconfig" SvcParamValue in the
-   resolved HTTPS answer. For the latter case, the original connection MUST
-   have successfully used the "echconfig" parameter to negotiate TLS ECH.
-
+>   Connections that are made to an origin server, either directly or
+>   through a tunnel created using the CONNECT method (Section 8.3), MAY
+>   be reused for requests with multiple different URI authority
+>   components.  A connection can be reused as long as the origin server
+>   is authoritative (Section 10.1).  For TCP connections without TLS,
+>   this depends on the host having resolved to the same service provider.
+>   Clients may implement this check in one of two ways: (1) by comparing
+>   for equality the resolved IP address to that of the original connection,
+>   or (2) by comparing for equality the "ech" SvcParamValue in the resolved 
+>   HTTPS RR answer. For the latter case, the original connection MUST have 
+>   successfully used the "ech" parameter to negotiate TLS ECH.
 
 # HTTP/3 Reuse
 
@@ -100,7 +99,7 @@ Thus, the policy described in this document only applies to HTTP/2.
 
 Existing coalescing policies do not require IP address authentication
 via DNSSEC. Thus, an adversary which can spoof A or AAAA responses can
-equally spoof HTTPS responses (and ECH key values).
+equally spoof HTTPS responses and ECHConfigList values.
 
 # IANA Considerations
 
@@ -111,4 +110,4 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+This document was improved based on feedback from David Benjamin, Tommy Pauly, and Martin Thomson.
