@@ -10,12 +10,12 @@
        This document specifies new criteria under which HTTP/2 clients may reuse connections.
 It updates  . 
     " name="description">
-<meta content="xml2rfc 3.10.0" name="generator">
+<meta content="xml2rfc 3.12.2" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-wood-httpbis-ech-coalescing" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.10.0
-    Python 3.9.5
+  xml2rfc 3.12.2
+    Python 3.9.7
     appdirs 1.4.4
     ConfigArgParse 1.3
     google-i18n-address 2.5.0
@@ -23,13 +23,13 @@ It updates  .
     intervaltree 3.1.0
     Jinja2 2.11.3
     kitchen 1.2.6
-    lxml 4.6.3
+    lxml 4.6.5
     pycountry 20.7.3
-    pyflakes 2.3.0
+    pyflakes 2.3.1
     PyYAML 5.4.1
-    requests 2.25.1
+    requests 2.26.0
     setuptools 52.0.0
-    six 1.15.0
+    six 1.16.0
 -->
 <link href="draft-wood-httpbis-ech-coalescing.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -198,7 +198,8 @@ It updates  .
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-html {
+:root {
+  color-scheme: light dark;
   --background-color: #fff;
   --text-color: #222;
   --title-color: #191919;
@@ -208,6 +209,7 @@ html {
   --pilcrow-weak: #ddd;
   --pilcrow-strong: #bbb;
   --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
   scrollbar-color: #bbb #eee;
 }
 body {
@@ -301,6 +303,10 @@ div {
 }
 svg {
   display: block;
+}
+/* font-family isn't space-separated, but =~ will have to do */
+svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
+  font-family: var(--font-mono);
 }
 .alignCenter.art-text {
   background-color: var(--highlight-color);
@@ -396,7 +402,7 @@ a.xref {
 /* Figures */
 tt, code, pre {
   background-color: var(--highlight-color);
-  font: 14px/22px 'Oxygen Mono', monospace;
+  font: 14px/22px var(--font-mono);
 }
 tt, code {
   /* changing the font for inline elements leads to different ascender
@@ -627,36 +633,8 @@ hr {
 }
 
 /* index */
-.index ul {
-  margin: 0 0 0 1em;
-  padding: 0;
-  list-style: none;
-}
-.index ul ul {
-  margin: 0;
-}
-.index li {
-  margin: 0;
-  text-indent: -2em;
-  padding-left: 2em;
-  padding-bottom: 5px;
-}
-.indexIndex {
-  margin: 0.5em 0 1em;
-}
-.index a {
-  font-weight: 700;
-}
-/* make the index two-column on all but the smallest screens */
-@media (min-width: 500px) {
-  .index ul {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  .index ul ul {
-    column-count: 1;
-    column-gap: 0;
-  }
+#rfc\.index\.index + ul {
+  margin-left: 0;
 }
 
 /* authors */
@@ -1002,7 +980,7 @@ address div.right {
 
 /* Dark mode. */
 @media (prefers-color-scheme: dark) {
-html {
+:root {
   --background-color: #121212;
   --text-color: #f0f0f0;
   --title-color: #fff;
@@ -1035,11 +1013,11 @@ svg [stroke="fill"], svg [fill^="#fff"] {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">ECH-Based HTTP Connection Reuse</td>
-<td class="right">October 2021</td>
+<td class="right">February 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Wood</td>
-<td class="center">Expires 28 April 2022</td>
+<td class="center">Expires 26 August 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1052,16 +1030,16 @@ svg [stroke="fill"], svg [fill^="#fff"] {
 <dd class="internet-draft">draft-wood-httpbis-ech-coalescing</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-10-25" class="published">25 October 2021</time>
+<time datetime="2022-02-22" class="published">22 February 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-04-28">28 April 2022</time></dd>
+<dd class="expires"><time datetime="2022-08-26">26 August 2022</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">C.A. Wood</div>
+      <div class="author-name">C. A. Wood</div>
 <div class="org">Cloudflare, Inc.</div>
 </div>
 </dd>
@@ -1100,7 +1078,7 @@ It updates <span>[<a href="#RFC7540" class="xref">RFC7540</a>]</span>.<a href="#
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 28 April 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 26 August 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1109,7 +1087,7 @@ It updates <span>[<a href="#RFC7540" class="xref">RFC7540</a>]</span>.<a href="#
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2021 IETF Trust and the persons identified as the
+            Copyright (c) 2022 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1118,9 +1096,9 @@ It updates <span>[<a href="#RFC7540" class="xref">RFC7540</a>]</span>.<a href="#
             publication of this document. Please review these documents
             carefully, as they describe your rights and restrictions with
             respect to this document. Code Components extracted from this
-            document must include Simplified BSD License text as described in
+            document must include Revised BSD License text as described in
             Section 4.e of the Trust Legal Provisions and are provided without
-            warranty as described in the Simplified BSD License.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+            warranty as described in the Revised BSD License.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="toc">
@@ -1226,17 +1204,21 @@ ECH configuration (ECHConfig) for as many hosts as possible.<a href="#section-3-
 service provider. As a result, clients can use it as a signal to determine if a given
 resource is hosted by the same service provider. Thus, the HTTP/2 connection reuse
 policy is modified to use this signal as follows:<a href="#section-3-2" class="pilcrow">¶</a></p>
-<p id="section-3-3">Connections that are made to an origin server, either directly or
-   through a tunnel created using the CONNECT method (Section 8.3), MAY
-   be reused for requests with multiple different URI authority
-   components.  A connection can be reused as long as the origin server
-   is authoritative (Section 10.1).  For TCP connections without TLS,
-   this depends on the host having resolved to the same service provider.
-   Clients may implement this check in one of two ways: (1) by comparing
-   for equality the resolved IP address to that of the original connection,
-   or (2) by comparing for equality the "echconfig" SvcParamValue in the
-   resolved HTTPS answer. For the latter case, the original connection MUST
-   have successfully used the "echconfig" parameter to negotiate TLS ECH.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-3-3.1">
+          <p id="section-3-3.1.1">Connections that are made to an origin server, either directly or
+  through a tunnel created using the CONNECT method (Section 8.3), MAY
+  be reused for requests with multiple different URI authority
+  components.  A connection can be reused as long as the origin server
+  is authoritative (Section 10.1).  For TCP connections without TLS,
+  this depends on the host having resolved to the same service provider.
+  Clients may implement this check in one of two ways: (1) by comparing
+  for equality the resolved IP address to that of the original connection,
+  or (2) by comparing for equality the "ech" SvcParamValue in the resolved 
+  HTTPS RR answer. For the latter case, the original connection MUST have 
+  successfully used the "ech" parameter to negotiate TLS ECH.<a href="#section-3-3.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
 </section>
 </div>
 <div id="http3-reuse">
@@ -1257,7 +1239,7 @@ Thus, the policy described in this document only applies to HTTP/2.<a href="#sec
       </h2>
 <p id="section-5-1">Existing coalescing policies do not require IP address authentication
 via DNSSEC. Thus, an adversary which can spoof A or AAAA responses can
-equally spoof HTTPS responses (and ECH key values).<a href="#section-5-1" class="pilcrow">¶</a></p>
+equally spoof HTTPS responses and ECHConfigList values.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -1283,19 +1265,19 @@ equally spoof HTTPS responses (and ECH key values).<a href="#section-5-1" class=
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
-<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a>&gt;</span>. </dd>
+<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7540">[RFC7540]</dt>
         <dd>
-<span class="refAuthor">Belshe, M.</span>, <span class="refAuthor">Peon, R.</span>, and <span class="refAuthor">M. Thomson, Ed.</span>, <span class="refTitle">"Hypertext Transfer Protocol Version 2 (HTTP/2)"</span>, <span class="seriesInfo">RFC 7540</span>, <span class="seriesInfo">DOI 10.17487/RFC7540</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7540">https://datatracker.ietf.org/doc/html/rfc7540</a>&gt;</span>. </dd>
+<span class="refAuthor">Belshe, M.</span>, <span class="refAuthor">Peon, R.</span>, and <span class="refAuthor">M. Thomson, Ed.</span>, <span class="refTitle">"Hypertext Transfer Protocol Version 2 (HTTP/2)"</span>, <span class="seriesInfo">RFC 7540</span>, <span class="seriesInfo">DOI 10.17487/RFC7540</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7540">https://www.rfc-editor.org/rfc/rfc7540</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
         <dd>
-<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8174">https://datatracker.ietf.org/doc/html/rfc8174</a>&gt;</span>. </dd>
+<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="TLS-ECH">[TLS-ECH]</dt>
       <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Oku, K.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-13</span>, <time datetime="2021-08-12" class="refDate">12 August 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-13">https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-13</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Oku, K.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-14</span>, <time datetime="2022-02-13" class="refDate">13 February 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-14">https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-14</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1316,7 +1298,7 @@ equally spoof HTTPS responses (and ECH key values).<a href="#section-5-1" class=
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">TODO acknowledge.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-1">This document was improved based on feedback from David Benjamin, Tommy Pauly, and Martin Thomson.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
