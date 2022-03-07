@@ -3,13 +3,13 @@
 
 
 httpbis                                                       C. A. Wood
-Internet-Draft                                          Cloudflare, Inc.
-Intended status: Standards Track                        22 February 2022
-Expires: 26 August 2022
+Internet-Draft                                                Cloudflare
+Intended status: Standards Track                            7 March 2022
+Expires: 8 September 2022
 
 
         HTTP Connection Reuse Based on TLS Encrypted ClientHello
-                   draft-wood-httpbis-ech-coalescing
+                draft-wood-httpbis-ech-coalescing-latest
 
 Abstract
 
@@ -38,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 August 2022.
+   This Internet-Draft will expire on 8 September 2022.
 
 Copyright Notice
 
@@ -204,5 +204,5 @@ Acknowledgments
 Author's Address
 
    Christopher A. Wood
-   Cloudflare, Inc.
+   Cloudflare
    Email: caw@heapingbits.net
