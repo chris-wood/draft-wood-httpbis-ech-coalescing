@@ -1,7 +1,7 @@
 ---
 title: HTTP Connection Reuse Based on TLS Encrypted ClientHello
 abbrev: ECH-Based HTTP Connection Reuse
-docname: draft-wood-httpbis-ech-coalescing
+docname: draft-wood-httpbis-ech-coalescing-latest
 category: std
 
 ipr: trust200902
@@ -16,14 +16,14 @@ author:
  -
     ins: C. A. Wood
     name: Christopher A. Wood
-    organization: Cloudflare, Inc.
+    organization: Cloudflare
     email: caw@heapingbits.net
 
 
 --- abstract
 
-This document specifies new criteria under which HTTP/2 clients may reuse connections.
-It updates {{!RFC7540}}.
+This document specifies new criteria under which HTTP/2 clients may reuse
+connections. It updates {{!RFC7540}}.
 
 --- middle
 
@@ -84,8 +84,8 @@ policy is modified to use this signal as follows:
 >   this depends on the host having resolved to the same service provider.
 >   Clients may implement this check in one of two ways: (1) by comparing
 >   for equality the resolved IP address to that of the original connection,
->   or (2) by comparing for equality the "ech" SvcParamValue in the resolved 
->   HTTPS RR answer. For the latter case, the original connection MUST have 
+>   or (2) by comparing for equality the "ech" SvcParamValue in the resolved
+>   HTTPS RR answer. For the latter case, the original connection MUST have
 >   successfully used the "ech" parameter to negotiate TLS ECH.
 
 # HTTP/3 Reuse
