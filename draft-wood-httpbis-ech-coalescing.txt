@@ -4,8 +4,8 @@
 
 httpbis                                                       C. A. Wood
 Internet-Draft                                                Cloudflare
-Intended status: Standards Track                            7 March 2022
-Expires: 8 September 2022
+Intended status: Standards Track                       28 September 2026
+Expires: 1 April 2027
 
 
         HTTP Connection Reuse Based on TLS Encrypted ClientHello
@@ -38,11 +38,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 September 2022.
+   This Internet-Draft will expire on 1 April 2027.
 
 Copyright Notice
 
-   Copyright (c) 2022 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -161,12 +161,12 @@ Table of Contents
 
 7.1.  Normative References
 
-   [HTTPS-RR] Schwartz, B., Bishop, M., and E. Nygren, "Service binding
-              and parameter specification via the DNS (DNS SVCB and
-              HTTPS RRs)", Work in Progress, Internet-Draft, draft-ietf-
-              dnsop-svcb-https-08, 12 October 2021,
+   [HTTPS-RR] Schwartz, B. M., Bishop, M., and E. Nygren, "Service
+              Binding and Parameter Specification via the DNS (SVCB and
+              HTTPS Resource Records)", Work in Progress, Internet-
+              Draft, draft-ietf-dnsop-svcb-https-12, 11 March 2023,
               <https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-
-              svcb-https-08>.
+              svcb-https-12>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -184,15 +184,14 @@ Table of Contents
 
    [TLS-ECH]  Rescorla, E., Oku, K., Sullivan, N., and C. A. Wood, "TLS
               Encrypted Client Hello", Work in Progress, Internet-Draft,
-              draft-ietf-tls-esni-14, 13 February 2022,
+              draft-ietf-tls-esni-25, 14 June 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
-              esni-14>.
+              esni-25>.
 
 7.2.  Informative References
 
-   [HTTP3]    Bishop, M., "Hypertext Transfer Protocol Version 3
-              (HTTP/3)", Work in Progress, Internet-Draft, draft-ietf-
-              quic-http-34, 2 February 2021,
+   [HTTP3]    Bishop, M., "HTTP/3", Work in Progress, Internet-Draft,
+              draft-ietf-quic-http-34, 2 February 2021,
               <https://datatracker.ietf.org/doc/html/draft-ietf-quic-
               http-34>.
 
